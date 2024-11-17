@@ -26,3 +26,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "All matrix tests have passed 🚀"
+
+  publish:
+    needs: test
+    if: ${{ github.ref == 'refs/heads/main' }}
+    permissions:
+      contents: write
+    uses: publishing-platform/publishing-platform-infrastructure/.github/workflows/publish-rubygem.yml@main
+    secrets:
+      GEM_HOST_API_KEY: ${{ secrets.PUBLISHING_PLATFORM_RUBYGEMS_API_KEY }}      
