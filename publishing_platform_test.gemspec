@@ -22,11 +22,11 @@ Gem::Specification.new do |spec|
   end
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = %w[lib]
 
   spec.add_dependency "capybara", ">= 3.36"
   spec.add_dependency "puma"
-  spec.add_dependency "selenium-webdriver", ">= 4.0"  
+  spec.add_dependency "selenium-webdriver", ">= 4.0"
 
   spec.add_development_dependency "climate_control"
   spec.add_development_dependency "publishing_platform_rubocop"
